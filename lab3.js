@@ -46,9 +46,10 @@ function prevImage() {
 function clearImages() {
     imageContainer.clear();
 }
-for(i = 0; i < 8; i++) {
-    addImage("https://placeimg.com/3000/2000/animals");
-}
+addImage("https://placeimg.com/3000/2000/animals");
+addImage("https://placeimg.com/3000/2000/animals");
+addImage("https://placeimg.com/3000/2000/animals");
+
 
 $('#nextImg').click(function() {
     nextImage();

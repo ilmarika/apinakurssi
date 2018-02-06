@@ -1,11 +1,8 @@
 /* global $ */
 let currentImage;
+let imageContainer = $('#imageContainer');
 function addImage(address) { 
-    // Create a HTML element using jQuery and store it in a variable
-    let element = $('<div>');
-    // ... then you can manipulate element using jQuery
-    element.text('Hello World!');
-    let imageContainer = $('#imageContainer');
+    imageContainer = $('#imageContainer');
     let image = $('<img />', {
         src: address,
     });
@@ -22,7 +19,7 @@ function addImage(address) {
 function showImage(image) {
     currentImage.hide();
     currentImage = image;
-    currentImage.show();
+    image.show();
 }
 
 function nextImage() {
@@ -46,9 +43,9 @@ function prevImage() {
 function clearImages() {
     imageContainer.clear();
 }
-addImage("https://placeimg.com/3000/2000/animals");
-addImage("https://placeimg.com/3000/2000/animals");
-addImage("https://placeimg.com/3000/2000/animals");
+for(i = 0; i < 8; i++) {
+addImage("https://placeimg.com/800/60" +i+ "/animals");  
+}
 
 
 $('#nextImg').click(function() {

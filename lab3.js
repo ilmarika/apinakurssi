@@ -6,7 +6,9 @@ function addImage(address) {
     // ... then you can manipulate element using jQuery
     element.text('Hello World!');
     let imageContainer = $('#imageContainer');
-    let image = '<img src='+ address +'>';
+    let image = $('<img />', {
+        src: address,
+    });
     imageContainer.append(image);
     console.log(image);
     if (image.is(':first-child')) {
@@ -25,8 +27,8 @@ function showImage(image) {
 
 function nextImage() {
     let image = currentImage.next();
-    if (image.lenght() == 0) {
-        image = imageContainer.children().first();
+    if (image.length == 0) {
+        image = $(' #imageContainer').children().first();
     }
 
     showImage(image);
@@ -34,9 +36,11 @@ function nextImage() {
 
 function prevImage() {
     let image = currentImage.previous()
-    if (image.lenght() == 0) {
-        image = imageContainer.children().last();
-    }   
+    if (image.length == 0) {
+        image = $(' #imageContainer').children().last();
+    }
+
+    showImage(image);
 }
 
 function clearImages() {

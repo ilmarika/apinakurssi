@@ -35,7 +35,7 @@ function nextImage() {
 }
 
 function prevImage() {
-    let image = currentImage.previous()
+    let image = currentImage.prev()
     if (image.length == 0) {
         image = $(' #imageContainer').children().last();
     }
@@ -46,9 +46,9 @@ function prevImage() {
 function clearImages() {
     imageContainer.clear();
 }
-addImage("https://placeimg.com/640/480/animals");
-addImage("https://placeimg.com/640/480/animals");
-addImage("https://placeimg.com/640/480/animals");
+for(i = 0; i < 8; i++) {
+    addImage("https://placeimg.com/3000/2000/animals");
+}
 
 $('#nextImg').click(function() {
     nextImage();

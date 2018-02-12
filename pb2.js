@@ -5,6 +5,5 @@ msg.hello = 'world';
 pb2.sendJson(msg);
 
 pb2.setReceiver(function(data) {
-  var x = data.hello;
   console.log('socket.on message received: '+JSON.stringify(data));
 });

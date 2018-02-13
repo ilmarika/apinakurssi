@@ -37,6 +37,7 @@ function jsonFlickrApi(data) {
             url: element.url_z
         });
         marker.addListener('click', function() {
+            clearImages();
             console.log("position: "+ marker.getPosition());
             showImage(addImage(marker.url));
         });

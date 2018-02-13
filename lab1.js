@@ -6,7 +6,7 @@ const searchForm = document.getElementById('searchForm');
 searchForm.addEventListener('submit', formSubmit);
 
 const mapOptions = {
-	center: new google.maps.LatLng(60.178847, 24.727998),
+	center: new google.maps.LatLng(22.293305, 114.171053),
 	zoom: 12,
 };
 

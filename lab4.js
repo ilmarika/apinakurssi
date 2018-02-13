@@ -35,8 +35,12 @@ function jsonFlickrApi(data) {
             position: new google.maps.LatLng(element.latitude, element.longitude),
             map: map
         });
+        marker.addListener('click', function() {
+            console.log("position: "+ marker.getPosition());
+        });
         flickrMarkers.push(marker);
     });
+    LatLngBounds(flickrMarkers);
 }
 
 function clearResults(markers) {
@@ -44,4 +48,12 @@ function clearResults(markers) {
         element.setMap(null);
     });
     flickrMarkers.length = 0;
+}
+
+function LatLngBounds(array) {
+    var bounds = new google.maps.LatLngBounds();
+    array.forEach(function(element) {
+        bounds.extend(element.getPosition());
+    });
+    map.fitBounds(bounds);
 }

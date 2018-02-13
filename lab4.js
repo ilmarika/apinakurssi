@@ -4,7 +4,11 @@
 $('#flickr').click(function() {
     flickrRequest();
 });
+$('#clear').click(function() {
+    clearResults();
+});
 
+var flickrMarkers = [];
 let position = map.getCenter();
 function flickrRequest() {
 
@@ -33,5 +37,13 @@ function jsonFlickrApi(data) {
             position: new google.maps.LatLng(element.latitude, element.longitude),
             map: map
         });
+        flickrMarkers.push(marker);
     });
+}
+
+function clearResults() {
+    flickrMarkers.forEach(function(element) {
+        element.setMap(null);
+    });
+    flickrMarkers.length = 0;
 }

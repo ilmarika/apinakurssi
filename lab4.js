@@ -16,13 +16,22 @@ function flickrRequest() {
             api_key: '1c7e2d1c77f17433c0d7b1de6408a3b1',
             has_geo: '1',
             media: 'photos',
-            lat: position.lat,
-            lon: position.lng,
-            format: 'json'
+            lat: position.lat(),
+            lon: position.lng(),
+            format: 'json',
+            extras: 'geo',
+            per_page: 10
         },
     })
 }
 
 function jsonFlickrApi(data) {
-    console.log('photos in location'+ position.lat, position.lng +': ', JSON.stringify(data));
+    console.log('photos in location'+ position.lat(), position.lng() +': ', data);
+    data.photos.photo.forEach(function(element){
+        console.log('location of the photo: '+ element.latitude, element.longitude)
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(element.latitude, element.longitude),
+            map: map
+        });
+    });
 }

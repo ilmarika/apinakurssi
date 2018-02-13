@@ -30,9 +30,7 @@ function flickrRequest() {
 }
 
 function jsonFlickrApi(data) {
-    console.log('photos in location'+ position.lat(), position.lng() +': ', data);
     data.photos.photo.forEach(function(element){
-        console.log('location of the photo: '+ element.latitude, element.longitude)
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(element.latitude, element.longitude),
             map: map

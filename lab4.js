@@ -23,8 +23,7 @@ function flickrRequest() {
             lat: position.lat(),
             lon: position.lng(),
             format: 'json',
-            extras: 'geo',
-            extras: 'url_z',
+            extras: 'geo, url_z',
             per_page: 10
         },
     })
@@ -35,12 +34,12 @@ function jsonFlickrApi(data) {
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(element.latitude, element.longitude),
             map: map,
-            id: element.id,
+            url: element.url_z
         });
         marker.addListener('click', function() {
             console.log("position: "+ marker.getPosition());
+            showImage(addImage(marker.url));
         });
-        console.log(element);
         flickrMarkers.push(marker);
     });
     LatLngBounds(flickrMarkers);

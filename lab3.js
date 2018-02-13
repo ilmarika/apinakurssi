@@ -41,7 +41,7 @@ function prevImage() {
 }
 
 function clearImages() {
-    imageContainer.clear();
+    imageContainer.empty();
 }
 for(i = 0; i < 8; i++) {
 addImage("https://placeimg.com/800/60" +i+ "/animals");  

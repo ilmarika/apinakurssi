@@ -24,6 +24,7 @@ function flickrRequest() {
             lon: position.lng(),
             format: 'json',
             extras: 'geo',
+            extras: 'url_z',
             per_page: 10
         },
     })
@@ -38,8 +39,8 @@ function jsonFlickrApi(data) {
         });
         marker.addListener('click', function() {
             console.log("position: "+ marker.getPosition());
-            photoUrl(marker.id);
         });
+        console.log(element);
         flickrMarkers.push(marker);
     });
     LatLngBounds(flickrMarkers);
@@ -58,23 +59,4 @@ function LatLngBounds(array) {
         bounds.extend(element.getPosition());
     });
     map.fitBounds(bounds);
-}
-
-function photoUrl(id) {
-
-    $.ajax({
-        url: 'https://api.flickr.com/services/rest',
-        dataType: 'jsonp',
-        data: {
-            method: 'flickr.photos.getSizes',
-            api_key: '1c7e2d1c77f17433c0d7b1de6408a3b1',
-            photo_id: id
-        },
-        format: 'json',
-        success: parseUrl(), 
-    })
-}
-
-function parseUrl(data) {
-
 }

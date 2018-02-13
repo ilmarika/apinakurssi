@@ -5,7 +5,7 @@ $('#flickr').click(function() {
     flickrRequest();
 });
 $('#clear').click(function() {
-    clearResults();
+    clearResults(flickrMarkers);
 });
 
 var flickrMarkers = [];
@@ -39,8 +39,8 @@ function jsonFlickrApi(data) {
     });
 }
 
-function clearResults() {
-    flickrMarkers.forEach(function(element) {
+function clearResults(markers) {
+    markers.forEach(function(element) {
         element.setMap(null);
     });
     flickrMarkers.length = 0;

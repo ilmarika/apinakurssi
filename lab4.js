@@ -66,6 +66,7 @@ function photoUrl(id) {
         url: 'https://api.flickr.com/services/rest',
         dataType: 'jsonp',
         data: {
+            method: 'flickr.photos.getSizes',
             api_key: '1c7e2d1c77f17433c0d7b1de6408a3b1',
             photo_id: id
         },

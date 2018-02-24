@@ -11,6 +11,8 @@ function getMessage(){
 
   pb2.setReceiver(function(data) {
     console.log('socket.on message received: '+JSON.stringify(data));
+    let messages = document.createElement("div");
+    messages.appendChild(data.msg);
   });
 }
 

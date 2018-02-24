@@ -3,9 +3,10 @@
 const pb2 = new PB2('https://pb2-2018.jelastic.metropolia.fi/', 'first_app_4578');
 const msg = {};
 let message = document.getElementById("message");
+let nick = document.getElementById("nick");
 
 function getMessage(){
-  msg.nick = 'ile';
+  msg.nick = nick.value;
   msg.msg = message.value;
   pb2.sendJson(msg);
 

@@ -11,8 +11,14 @@ function getMessage(){
 
   pb2.setReceiver(function(data) {
     console.log('socket.on message received: '+JSON.stringify(data));
-    let messages = document.createElement("div");
-    messages.appendChild(data.msg);
+    let div = document.createElement("div");
+    if(data.me) {
+      div.setAttribute("id", "me");
+    } else {
+      div.setAttribute("id", "other");
+    }
+    document.getElementById("messages").appendChild(div);
+    div.innerHTML = data.json.nick + ': ' + data.json.msg;
   });
 }
 

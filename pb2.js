@@ -1,6 +1,7 @@
 'use strict';
 /* global $ */
-const pb2 = new PB2('https://pb2-2018.jelastic.metropolia.fi/', 'first_app_4578');
+let appId = document.getElementById("channel");
+let pb2 = new PB2('https://pb2-2018.jelastic.metropolia.fi/', appId.value);
 const msg = {};
 let message = document.getElementById("message");
 let nick = document.getElementById("nick");
@@ -12,6 +13,7 @@ function getMessage(){
 }
 
 pb2.setReceiver(function(data) {
+  console.log('channel: '+appId.value);
   console.log('socket.on message received: '+JSON.stringify(data));
   let div = document.createElement("div");
   if(data.me) {
